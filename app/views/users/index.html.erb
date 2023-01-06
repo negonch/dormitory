@@ -1,0 +1,66 @@
+<%# Этот шаблон отрисуется, когда посетитель захочет выйти на главную страницу %>
+
+<!DOCTYPE html>
+<html>
+
+
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container">
+
+      <% if flash.any? %>
+        <div class="content-wrapper buffer-both">
+          <% flash.each do |name, message| %>
+            <%= content_tag :div, message, class: "flash-#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+
+
+
+<div class="content-wrapper buffer-both text-center">
+  <div class="buffer-both">
+    <h1 class="title-medium">ФГБОУ ВО СПбГПМУ Общежитие №1</h1>
+  </div>
+</div>
+
+
+</html>
+
+

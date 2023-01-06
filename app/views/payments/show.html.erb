@@ -1,0 +1,43 @@
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+
+    <h1>№ чека: <%= @payment.check_number %> </h1>
+    <p>Дата оплаты: <%= @payment.date_payment %> </p>
+    <p>Месяц: <%= @payment.month_payment %> </p>
+    <p>Сумма: <%= @payment.sum %> </p>
+    <p>Студент: <%= @payment.student_id %> </p>
+
+  </div>
+</div>

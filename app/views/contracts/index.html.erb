@@ -1,0 +1,93 @@
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+    <h1>Договор</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <% if flash.any? %>
+    <div class="content-wrapper buffer-both">
+      <% flash.each do |name, message| %>
+        <%= content_tag :div, message, class: "flash-#{name}" %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+    <table class="table">
+      <thead>
+  <tr>
+    <th>№ договора</th>
+    <th>Дата подписания</th>
+    <th>Дата закрытия</th>
+    <th>№ направления</th>
+    <th>Дата направления</th>
+    <th>Категория обучения</th>
+    <th>Студент</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @contracts.each do |contract| %>
+    <tr>
+      <td><%= contract.number_contract %></td>
+      <td><%= contract.date_signing %></td>
+      <td><%= contract.expiration_date %></td>
+      <td><%= contract.direction_number %></td>
+      <td><%= contract.direction_date %></td>
+      <td><%= contract.category_study %></td>
+      <td><%= contract.student_id %></td>
+      <td><%= link_to "Подробнее", contract_show_path, class: 'button button-small' %></td>
+      <td><%= link_to "Редактировать", contract_edit_path, class: 'button button-small' %></td>
+      <td><%= link_to "Удалить", contract_destroy_path, class: 'button button-small', method: :delete, data: { confirm: "Вы уверены?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<br>
+
+
+<%= link_to "Добавить", contract_new_path, class: 'button button-light button-small' %>
+
+

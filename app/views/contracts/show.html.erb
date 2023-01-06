@@ -1,0 +1,46 @@
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+
+    <h1>№ договора: <%= @contract.number_contract %> </h1>
+    <p>Дата подписания: <%= @contract.date_signing %> </p>
+    <p>Дата закрытия: <%= @contract.expiration_date %> </p>
+    <p>№ направления: <%= @contract.direction_number %> </p>
+    <p>Дата направления: <%= @contract.direction_date %> </p>
+    <p>Категория обучения: <%= @contract.category_study %> </p>
+    <p>Студент: <%= @contract.student_id %> </p>
+
+  </div>
+</div>

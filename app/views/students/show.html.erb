@@ -1,0 +1,52 @@
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+
+    <h1>Фамилия: <%= @student.surname %> </h1>
+    <p>Имя: <%= @student.name %> </p>
+    <p>Отчество: <%= @student.patronymic %> </p>
+    <p>Дата рождения: <%= @student.date_birth %> </p>
+    <p>Страна: <%= @student.country_residense %> </p>
+    <p>Гражданство: <%= @student.citizenchip %> </p>
+    <p>Паспорт: <%= @student.passport %> </p>
+    <p>Адрес: <%= @student.address %> </p>
+    <p>Телефон: <%= @student.phone_number %> </p>
+    <p>Пол: <%= @student.sex_id %> </p>
+    <p>№ комнаты: <%= @student.room_id %> </p>
+    <p>№ группы: <%= @student.group_id %> </p>
+    <p>№ пропуска: <%= @student.badge_id %> </p>
+
+  </div>
+</div>

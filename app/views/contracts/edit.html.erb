@@ -1,0 +1,94 @@
+<%# Страница обновления данных %>
+
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+<div class="container content-wrapper buffer-both">
+  <h1 class="title-medium">Редактировать договор</h1>
+
+  <div class="column-1-2">
+
+    <%= form_for @contract do |f| %>
+      <%# Вывод ошибок валидации пользователя, если есть. Ошибки содержатся %>
+      <% if @contract.errors.any? %>
+        <div class="form-errors">
+          <ul>
+            <% for message in @contract.errors.full_messages %>
+              <li class="form-error-message"><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-field">
+        <%= f.label :number_contract, '№ договора', class: 'form-label' %>
+        <%= f.number_field :number_contract, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :date_signing, 'Дата подписания', class: 'form-label' %>
+        <%= f.date_field :date_signing, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :expiration_date, 'Дата окончания', class: 'form-label' %>
+        <%= f.date_field :expiration_date, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :direction_number, '№ направления', class: 'form-label' %>
+        <%= f.number_field :direction_number, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :direction_date, 'Дата направления', class: 'form-label' %>
+        <%= f.date_field :direction_date, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :category_id, 'Категория обучения', class: 'form-label' %>
+        <%= f.number_field :category_id, class: 'form-text-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :student_id, 'Студент', class: 'form-label' %>
+        <%= f.number_field :student_id, class: 'form-text-field' %>
+      </div>
+
+
+      <div class="form-action buffer-top">
+        <%= f.submit 'Обновить', class: 'button button-dark button-small' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,88 @@
+
+<div class="header">
+  <div class="container">
+
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "На главную", users_path, class: 'button button-light button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Студент", students_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Договор", contracts_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Комната", rooms_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Пропуск", badges_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Гость", guests_index_path, class: 'button-small' %></h1>
+    </div>
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Оплата", payments_index_path, class: 'button-small' %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Выйти', log_in_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+    <h1>Гость</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <% if flash.any? %>
+    <div class="content-wrapper buffer-both">
+      <% flash.each do |name, message| %>
+        <%= content_tag :div, message, class: "flash-#{name}" %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="content-wrapper buffer-both text-left">
+  <div class="buffer-both">
+    <table class="table">
+      <thead>
+  <tr>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
+    <th>Дата прибытия</th>
+    <th>Дата отъезда</th>
+    <th>Студент</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @guests.each do |guest| %>
+    <tr>
+      <td><%= guest.surname %></td>
+      <td><%= guest.name %></td>
+      <td><%= guest.patronymic %></td>
+      <td><%= guest.arrival_date %></td>
+      <td><%= guest.departure_date %></td>
+      <td><%= guest.student_id %></td>
+      <td><%= link_to "Подробнее", guest_show_path, class: 'button button-small' %></td>
+      <td><%= link_to "Редактировать", guest_edit_path, class: 'button button-small' %></td>
+      <td><%= link_to "Удалить", guest_destroy_path, class: 'button button-small', method: :delete, data: { confirm: "Вы уверены?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<br>
+
+
+<%= link_to "Добавить", guest_new_path, class: 'button button-light button-small' %>
